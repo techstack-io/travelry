@@ -46,13 +46,15 @@ export default function HomeScreen() {
           }}
         />
       </View>
+      {/* <Text className='text-xl px-8 py-2'>Choose a Category</Text> */}
       <Text className="absolute inset-x-4 bottom-0 h-16">
         <Fontisto name="checkbox-active" size={24} color="black" />
         You are logged in
       </Text>
+      
       {/* Menu Container */}
       <ScrollView>
-        <View className='flex-row items-left my-32 justify-left px-10 py-4 inline'>
+        <View className='flex-row px-8 my-36'>
           <MenuContainer
             key={'hotel'}
             title='Hotels'
