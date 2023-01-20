@@ -4,10 +4,12 @@ import Feather from "react-native-vector-icons/Feather";
 import { useAuth } from "../hooks/useAuth";
 import { getAuth, signOut } from "firebase/auth";
 import { LinearGradient } from "expo-linear-gradient";
+import { LogBox } from 'react-native';
 
 const auth = getAuth();
 
 function Settings() {
+  
   const [modalVisible, setModalVisible] = React.useState(false);
   return (
     <View>

@@ -14,10 +14,10 @@ import {
 import { StackScreenProps } from "@react-navigation/stack";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-
 const auth = getAuth();
 
 function SignInScreen<StackScreenProps>({ navigation }) {
+  
   const [value, setValue] = React.useState({
     email: "",
     password: "",
@@ -116,3 +116,7 @@ const styles = StyleSheet.create({
     color: "#424242",
   },
 });
+function setIsLogin(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+

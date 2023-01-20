@@ -5,6 +5,7 @@ import { Image, Pressable, StyleSheet, TextInput, Text, View } from 'react-nativ
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import { StackScreenProps } from '@react-navigation/stack';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 const auth = getAuth();
 
 function SignUpScreen<StackScreenProps>({ navigation }) {
@@ -22,7 +23,7 @@ function SignUpScreen<StackScreenProps>({ navigation }) {
       })
       return;
     }
-
+  
     try {
       await createUserWithEmailAndPassword(auth, value.email, value.password);
       navigation.navigate('Sign In');
