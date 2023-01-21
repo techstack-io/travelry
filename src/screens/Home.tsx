@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, ScrollView } from "react-native";
 import { useAuth } from "../hooks/useAuth";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -6,10 +6,12 @@ import { Fontisto } from "@expo/vector-icons";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Avatar } from "@rneui/themed";
 import MenuContainer from "../components/MenuContainer";
-import { Hotels } from "../../assets";
+import { Hotels, Attractions, Restaurants } from "../../assets";
 
 export default function HomeScreen() {
+  
   const { user } = useAuth();
+  const { type, setType } = useState('restaurants');
 
   return (
     <View className="w-full h-full bg-white">
@@ -54,11 +56,28 @@ export default function HomeScreen() {
       
       {/* Menu Container */}
       <ScrollView>
-        <View className='flex-row px-8 my-36'>
+        <View className='flex-row w-full h-auto justify-evenly mt-32'>
           <MenuContainer
             key={'hotel'}
             title='Hotels'
-            imageSrc = {Hotels}
+            imageSrc={Hotels}
+            type={type} 
+            setType={setType}          
+          />
+          <MenuContainer
+            key={'attractions'}
+            title='Attractions'
+            imageSrc={Attractions} 
+            type={type} 
+            setType={setType}          
+          />
+
+          <MenuContainer
+            key={'restaurants'}
+            title='Restaurants'
+            imageSrc={Restaurants} 
+            type={type} 
+            setType={setType}          
           />
         </View>
     </ScrollView>

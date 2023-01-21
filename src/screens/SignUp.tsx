@@ -3,10 +3,12 @@ import logo from "../../assets/logo.png"
 import Icon from '@expo/vector-icons/MaterialCommunityIcons'
 import { Image, Pressable, StyleSheet, TextInput, Text, View } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
-import { StackScreenProps } from '@react-navigation/stack';
+// --------------------------------------------------------
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth();
+
+
 
 function SignUpScreen<StackScreenProps>({ navigation }) {
   const [value, setValue] = React.useState({

@@ -6,7 +6,7 @@ import { useFonts } from "expo-font";
 import { LogBox } from "react-native";
 import { ThemeProvider } from "react-native-elements";
 
-export default function App() {
+export default function App(): JSX.Element | null {
   const [loaded] = useFonts({
     "Urbanist-Black": require("./assets/fonts/Urbanist-Black.ttf"),
     "Urbanist-Regular": require("./assets/fonts/Urbanist-Black.ttf"),
