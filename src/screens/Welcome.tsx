@@ -44,7 +44,7 @@ function WelcomeScreen<StackScreenProps>({ navigation }) {
   }
 
   return (
-      <View className="w-full h-full bg-white">
+      <View className="w-screen h-full items-center bg-white">
         <View className="absolute mx-10 h-full flex justify-center align-center -mt-[20px]">
           <Image
             source={logo}

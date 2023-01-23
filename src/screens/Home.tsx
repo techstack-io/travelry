@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native";
 import { useAuth } from "../hooks/useAuth";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Avatar } from "@rneui/themed";
-import MenuContainer from "../components/MenuContainer";
 import { Hotels, Attractions, Restaurants } from "../../assets";
+import ItemCardContainer from '../components/ItemCardContainer';
 
 export default function HomeScreen() {
-  
   const { user } = useAuth();
-  const { type, setType } = useState('restaurants');
+  // const { type, setType } = useState("restaurants");
 
   return (
-    <View className="w-full h-full bg-white">
-      <View className="mx-8 -my-36 h-5/6 flex justify-center align-center space-y-6">
-        <Text className="text-black-100 text-left text-xl px-6 pb-2">
+    // Main View
+    <View className="items-center justify-start h-screen bg-white">
+      {/* Welcome View */}
+      <View className="mx-6 -my-48 h-5/6 flex justify-center items-left align-center space-y-6">
+        <Text className="text-black-100 text-left text-xl px-6">
           <Avatar
             size={32}
             rounded
@@ -24,14 +25,15 @@ export default function HomeScreen() {
           />
           Hello {user?.email}!
         </Text>
+        {/* Main Text View */}
         <Text
-          className="leading-[42px] text-[28px]"
+          className="leading-[42px] text-[28px] pb-6"
           style={{ fontFamily: "Urbanist-Light", fontSize: 30 }}
         >
           Where do you want to explore today?
         </Text>
       </View>
-      <View className="flex-row w-[350px] items-center justify-center -my-24 mx-6 py-1 px-4 bg-white rounded-xl shadow-lg">
+      <View className="flex-row w-[350px] items-center -my-20 mx-6 px-4 bg-white rounded-xl shadow-lg">
         <MaterialIcons name="search" size={24} color="black" />
         {/* Google Search */}
         <GooglePlacesAutocomplete
@@ -48,14 +50,44 @@ export default function HomeScreen() {
           }}
         />
       </View>
-      {/* <Text className='text-xl px-8 py-2'>Choose a Category</Text> */}
-      <Text className="absolute inset-x-4 bottom-0 h-16">
+      <View className="flex flex-row my-32 space-x-14">
+        <TouchableOpacity>
+          <Image source={Hotels} style={{ width: 50, height: 50 }} />
+          <Text className="uppercase font-bold">Hotels</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="">
+          <Image source={Attractions} style={{ width: 50, height: 50 }} />
+          <Text className="uppercase font-bold">Hotels</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="">
+          <Image source={Restaurants} style={{ width: 50, height: 50 }} />
+          <Text className="uppercase font-bold">Hotels</Text>
+        </TouchableOpacity>
+      </View>
+      {/* Cards */}
+      <View>
+        <View className='flex-row items-center gap-4 -mt-24 -ml-44'>
+          <Text className="text-xl uppercase">
+            Explore
+          </Text>
+          <TouchableOpacity>
+            <MaterialIcons name="explore" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View className='flex-row flex-wrap items-center justify-evenly px-4'>
+
+          {/* <ItemCardContainer key={101} imageSrc={'https://cdn.pixabay.com/photo/2017/06/26/12/49/red-wine-2443699_1280.jpg'} title={'restaurant-1'} location={'Canada'} /> */}
+          {/* <ItemCardContainer key={102} imageSrc={''} title={''} location={''} /> */}
+        </View>
+      {/* You are logged in */}
+      <Text className="absolute inset-x-4 bottom-14 ml-4 h-16">
         <Fontisto name="checkbox-active" size={24} color="black" />
         You are logged in
       </Text>
-      
+
       {/* Menu Container */}
-      <ScrollView>
+      {/* <ScrollView>
         <View className='flex-row w-full h-auto justify-evenly mt-32'>
           <MenuContainer
             key={'hotel'}
@@ -80,7 +112,7 @@ export default function HomeScreen() {
             setType={setType}          
           />
         </View>
-    </ScrollView>
+    </ScrollView> */}
     </View>
   );
 }
