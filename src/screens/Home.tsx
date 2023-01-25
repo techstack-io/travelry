@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native";
+import React from "react";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import { useAuth } from "../hooks/useAuth";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
@@ -75,16 +75,25 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       </View>
-      <View className='flex-row flex-wrap items-center justify-evenly px-4'>
-
-          {/* <ItemCardContainer key={101} imageSrc={'https://cdn.pixabay.com/photo/2017/06/26/12/49/red-wine-2443699_1280.jpg'} title={'restaurant-1'} location={'Canada'} /> */}
-          {/* <ItemCardContainer key={102} imageSrc={''} title={''} location={''} /> */}
+      <View className='flex-row flex-wrap items-center justify-evenly -my-6 px-4'>
+          <ItemCardContainer 
+            key={101} 
+            imageSrc={'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'} 
+            title={'restaurant-1'} 
+            location={'Kona'} 
+          />
+          <ItemCardContainer 
+            key={102} 
+            imageSrc={'https://lh3.googleusercontent.com/0acXBgqCRGlxqk2SijosLlj3O9PIglqIMMk1pME5GChnVYHXE_JlNgCvubHelUthaigXZxqDdkHzcyS_nLjecnm3aGDmqRVx3GPA2NxmvPEqMXYzFiDo3f56mhWSW5wDopW2PniaOQ=w2400'} 
+            title={'restaurant-2'} 
+            location={'Waikiloa'} 
+          />
         </View>
       {/* You are logged in */}
-      <Text className="absolute inset-x-4 bottom-14 ml-4 h-16">
+      {/* <Text className="absolute inset-x-4 bottom-14 ml-4 h-16">
         <Fontisto name="checkbox-active" size={24} color="black" />
         You are logged in
-      </Text>
+      </Text> */}
 
       {/* Menu Container */}
       {/* <ScrollView>
